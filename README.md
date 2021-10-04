@@ -15,7 +15,7 @@
 
 <h1> WORK DISTRIBUTION </h1>
 
-<p> Akshay will be responsible for: </p>
+<h2> Akshay will be responsible for: </h2>
 <p> •	A favorites section of bars view using data persistence (Coredata or Cloud Firestore), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
 <p> •	App Clip implementation that uses Uber and Apple Maps icons to direct the user to these apps once clicked along with the location (latitude, longitude) to the apps. </p>
 
