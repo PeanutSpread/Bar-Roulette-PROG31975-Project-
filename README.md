@@ -19,11 +19,11 @@
 <p> •	A favorites section of bars view using data persistence (Coredata or Cloud Firestore), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
 <p> •	App Clip implementation that uses Uber and Apple Maps icons to direct the user to these apps once clicked along with the location (latitude, longitude) to the apps. </p>
 
-<p> Luke will be responsible for: </p>
+<h2> Luke will be responsible for: </h2>
 <p> •	The UI and UX part of the app of “Bar Roulette.” It will be designed for a user-friendly experience, while being easy to navigate to different views and pages of the app. </p>
 <p> •	The randomization selection of bars where it uses a list of bars and picks one bar at random whenever the user opens the app to go out drinking with their family and friends. </p>
 
-<p> Ammar will be responsible for: </p>
+<h2> Ammar will be responsible for: </h2>
 <p> •	Fetching the list of bars. It will use location services to find nearby bars in the user’s location radius. </p>
 <p> •	the interaction of views, which will be made sure to be user-friendly e.g., ease and speed of navigation through the app. </p>
 
