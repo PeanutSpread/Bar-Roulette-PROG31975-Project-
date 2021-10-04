@@ -1,5 +1,5 @@
-# Bar-Roulette
-PROG31975 Project - Akshay, Luke, Ammar
+# <h1> Bar-Roulette </h1>
+ <p> PROG31975 Project - Akshay, Luke, Ammar </p>
 
 
 <h1> APP INTRODUCTION </h1>
