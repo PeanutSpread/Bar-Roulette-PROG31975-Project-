@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8254C96A27399C0900EFD6A4 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96927399C0900EFD6A4 /* Bar.swift */; };
+		8254C96C2739A2AC00EFD6A4 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */; };
+		8254C96E2739A32700EFD6A4 /* RouletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96D2739A32700EFD6A4 /* RouletteView.swift */; };
+		8254C9702739AC1600EFD6A4 /* UIModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96F2739AC1600EFD6A4 /* UIModifiers.swift */; };
 		8296BD8C270AA2F8005A88F3 /* Bar_RouletteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296BD8B270AA2F8005A88F3 /* Bar_RouletteApp.swift */; };
 		8296BD8E270AA2F8005A88F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296BD8D270AA2F8005A88F3 /* ContentView.swift */; };
 		8296BD90270AA2F9005A88F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8296BD8F270AA2F9005A88F3 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		8254C96927399C0900EFD6A4 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		8254C96D2739A32700EFD6A4 /* RouletteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteView.swift; sourceTree = "<group>"; };
+		8254C96F2739AC1600EFD6A4 /* UIModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIModifiers.swift; sourceTree = "<group>"; };
 		8296BD88270AA2F8005A88F3 /* Bar Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8296BD8B270AA2F8005A88F3 /* Bar_RouletteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_RouletteApp.swift; sourceTree = "<group>"; };
 		8296BD8D270AA2F8005A88F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				8296BD8D270AA2F8005A88F3 /* ContentView.swift */,
+				8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */,
+				8254C96D2739A32700EFD6A4 /* RouletteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,8 +100,6 @@
 		8296BD7F270AA2F8005A88F3 = {
 			isa = PBXGroup;
 			children = (
-				8254C96827399B2400EFD6A4 /* Models */,
-				8254C96727399B1C00EFD6A4 /* Views */,
 				8296BD8A270AA2F8005A88F3 /* Bar Roulette */,
 				8296BD9B270AA2FA005A88F3 /* Bar RouletteTests */,
 				8296BDA5270AA2FA005A88F3 /* Bar RouletteUITests */,
@@ -114,6 +120,9 @@
 		8296BD8A270AA2F8005A88F3 /* Bar Roulette */ = {
 			isa = PBXGroup;
 			children = (
+				8254C96827399B2400EFD6A4 /* Models */,
+				8254C96727399B1C00EFD6A4 /* Views */,
+				8254C96F2739AC1600EFD6A4 /* UIModifiers.swift */,
 				8296BD8B270AA2F8005A88F3 /* Bar_RouletteApp.swift */,
 				8296BD8F270AA2F9005A88F3 /* Assets.xcassets */,
 				8296BD91270AA2F9005A88F3 /* Preview Content */,
@@ -276,9 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8254C9702739AC1600EFD6A4 /* UIModifiers.swift in Sources */,
 				8296BD8E270AA2F8005A88F3 /* ContentView.swift in Sources */,
+				8254C96E2739A32700EFD6A4 /* RouletteView.swift in Sources */,
 				8254C96A27399C0900EFD6A4 /* Bar.swift in Sources */,
 				8296BD8C270AA2F8005A88F3 /* Bar_RouletteApp.swift in Sources */,
+				8254C96C2739A2AC00EFD6A4 /* FavouritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
