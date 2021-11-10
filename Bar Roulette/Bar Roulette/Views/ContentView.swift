@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init(){
+        UINavigationBar.appearance().backgroundColor = .eerie_black
+    }
+    
     var body: some View {
-        TabView {
-            RouletteView().tabItem{
-                Image(systemName: "hexagon.fill")
-                Text("Bars")
+        NavigationView {
+            RouletteView()
+                .toolbar{
+                    Button(action: {})
+                    {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
+                
             }
-            
-            FavouritesView().tabItem{
-                Image(systemName: "star.fill")
-                Text("Favourites")
-            }.padding(10)
-        }
+        }.modifier(RouletteNavigationModifier())
     }
 }
 
