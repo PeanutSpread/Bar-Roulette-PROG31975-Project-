@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Bar {
+struct Bar : Hashable{
     private var id : UUID
     private var name : String
     private var type : String
@@ -18,11 +18,11 @@ class Bar {
     private var phone : String
     private var website : String
     
-    init (Id id : UUID, Name name : String, Type type : String, Rating rating : Double, Latitude latitude : Double, Longitude longitude : Double, Address address : String, Phone phone : String, Website website : String) {
+    init (Id id : UUID, Name name : String, BarType barType : String, Rating rating : Double, Latitude latitude : Double, Longitude longitude : Double, Address address : String, Phone phone : String, Website website : String) {
         
-        self.id = id 
+        self.id = id
         self.name = name
-        self.type = type
+        self.barType = barType
         self.rating = rating
         self.latitude = latitude
         self.longitude = longitude
