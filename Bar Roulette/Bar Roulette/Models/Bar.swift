@@ -8,6 +8,7 @@
 import Foundation
 
 class Bar {
+    private var id : UUID
     private var name : String
     private var type : String
     private var rating : Double
@@ -17,8 +18,9 @@ class Bar {
     private var phone : String
     private var website : String
     
-    init (Name name : String, Type type : String, Rating rating : Double, Latitude latitude : Double, Longitude longitude : Double, Address address : String, Phone phone : String, Website website : String) {
+    init (Id id : UUID, Name name : String, Type type : String, Rating rating : Double, Latitude latitude : Double, Longitude longitude : Double, Address address : String, Phone phone : String, Website website : String) {
         
+        self.id = id 
         self.name = name
         self.type = type
         self.rating = rating
