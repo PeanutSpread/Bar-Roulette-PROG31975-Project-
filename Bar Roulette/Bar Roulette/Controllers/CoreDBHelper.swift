@@ -37,6 +37,13 @@ class CoreDBHelper : ObservableObject{
             let barTobeInserted = NSEntityDescription.insertNewObject(forEntityName: self.ENTITY_NAME, into: self.MOC) as! BarMO
             
             barTobeInserted.name = newBar.name
+            barTobeInserted.barType = newBar.barType
+            barTobeInserted.rating = newBar.rating
+            barTobeInserted.latitude = newBar.latitude
+            barTobeInserted.longitude = newBar.longitude
+            barTobeInserted.address = newBar.address
+            barTobeInserted.phone = newBar.phone
+            barTobeInserted.website = newBar.website
             
             
             if self.MOC.hasChanges{
@@ -65,7 +72,7 @@ class CoreDBHelper : ObservableObject{
         }
     }
     
-    private func searchOrder(barID : UUID) -> BarMO?{
+    private func searchBar(barID : UUID) -> BarMO?{
         
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: ENTITY_NAME)
@@ -87,8 +94,8 @@ class CoreDBHelper : ObservableObject{
         return nil
     }
     
-    func deleteOrder(barID : UUID){
-        let searchResult = self.searchOrder(barID: barID)
+    func deleteBar(barID : UUID){
+        let searchResult = self.searchBar(barID: barID)
         
         if (searchResult != nil){
             
@@ -106,33 +113,8 @@ class CoreDBHelper : ObservableObject{
             }
             
         }else{
-            print(#function, "No matching record found for given orderID \(barID)")
+            print(#function, "No matching record found for given barID \(barID)")
         }
     }
-    
-    func updateBar(updatedBar: BarMO){
-        let searchResult = self.searchOrder(barID: updatedBar.id as UUID)
-        
-        if (searchResult != nil){
-            do{
-                
-                let barToUpdate = searchResult!
-                //orderToUpdate.roast = updatedOrder.roast
-                //orderToUpdate.amount = updatedOrder.amount
-                //orderToUpdate.size = updatedOrder.size
-                
-                try self.MOC.save()
-                
-                print(#function, "Order details updated successfully")
-                
-            }catch let error as NSError{
-                print(#function, "Unable to search for given ID \(error)")
-            }
-        }else{
-            print(#function, "No matching record found for given orderID \(updatedBar.id)")
-        }
-    }
-    
-
 }
 
