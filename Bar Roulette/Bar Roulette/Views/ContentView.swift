@@ -8,29 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showBar = false
-    
-    init(){
-        UINavigationBar.appearance().backgroundColor = .eerie_black
-    }
-    
     var body: some View {
-        NavigationView {
-            VStack {
-                if(showBar) {
-                    BarView()
-                    
-                } else {
-                    Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
-                    .modifier(RouletteButtonModifier())
-                }
+        TabView {
+            RouletteView().tabItem{
+                Image(systemName: "hexagon.fill")
+                Text("Bars")
+            }
             
-            }
-            .modifier(RouletteBackgroundModifier())
-            .toolbar{
-                Button(action: {})
-                {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
-            }
+            FavouritesView().tabItem{
+                Image(systemName: "star.fill")
+                Text("Favourites")
+            }.padding(10)
         }
     }
 }
