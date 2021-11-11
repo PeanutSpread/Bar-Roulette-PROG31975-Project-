@@ -1,0 +1,33 @@
+//
+//  Roulette.swift
+//  Bar Roulette
+//
+//  Created by Luke Van Rooyen on 2021-11-08.
+//
+
+import SwiftUI
+
+struct RouletteView: View {
+    var body: some View {
+        VStack {
+<<<<<<< HEAD:Bar Roulette/Bar Roulette/Views/BarView.swift
+            
+            
+=======
+            Button(action: {}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
+            .modifier(RouletteButtonModifier())
+>>>>>>> main:Bar Roulette/Bar Roulette/Views/RouletteView.swift
+        }
+    }
+}
+
+struct RouletteView_Previews: PreviewProvider {
+    static var previews: some View {
+<<<<<<< HEAD:Bar Roulette/Bar Roulette/Views/BarView.swift
+        let example = Bar(Id: UUID(), Name: "Monaghan's Sports Pub & Grill", BarType: "Sports Bar", Rating: 3.0, Latitude: 43.470734, Longitude: -79.694534, Address: "1289 Marlborough Court Oakville ON L6H 2R9 Canada", Phone: "+1 (905) 842-4435", Website: "monaghans.ca")
+        BarView(bar: example)
+=======
+        RouletteView()
+>>>>>>> main:Bar Roulette/Bar Roulette/Views/RouletteView.swift
+    }
+}
