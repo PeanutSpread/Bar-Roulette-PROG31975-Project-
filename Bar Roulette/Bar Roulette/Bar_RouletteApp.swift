@@ -13,7 +13,7 @@ struct Bar_RouletteApp: App {
     let coreDBHelper = CoreDBHelper(context: PersistenceController.shared.container.viewContext)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(coreDBHelper)
         }
     }
 }
