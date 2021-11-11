@@ -51,18 +51,52 @@ struct RouletteFavouritesModifier: ViewModifier{
             )
     }
 }
-struct RouletteNavigationModifier: ViewModifier{
-    func body(content: Content) -> some View {
-        return content
-            .accentColor(Color.eerie_black)
-            .background(Color.eerie_black)
-    }
-}
 
 struct RouletteBackgroundModifier: ViewModifier{
     func body(content: Content) -> some View {
         return content
             .background(Color.eerie_black)
             .accentColor(Color.eerie_black)
+    }
+}
+
+struct BarTitleModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .font(.system(size: screenWidth/15))
+            .foregroundColor(Color.eerie_black)
+    }
+}
+
+struct BarRatingModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.orange_yellow)
+            .background(Color.eerie_black)
+            .cornerRadius(5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.honeydew, lineWidth: 5)
+            )
+    }
+}
+
+struct BarTextModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.eerie_black)
+    }
+}
+
+struct BarGroupModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.eerie_black)
+            .background(Color.orange_yellow)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.honeydew, lineWidth: 5)
+            )
     }
 }
