@@ -63,5 +63,14 @@ struct RouletteNavigationModifier: ViewModifier{
     func body(content: Content) -> some View {
         return content
             .accentColor(Color.eerie_black)
+            .background(Color.eerie_black)
+    }
+}
+
+struct RouletteBackgroundModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .background(Color.eerie_black)
+            .accentColor(Color.eerie_black)
     }
 }
