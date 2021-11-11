@@ -18,7 +18,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 if(showBar) {
-                    BarView()
+                    //BarView()
                     
                 } else {
                     Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
