@@ -8,19 +8,33 @@ import SwiftUI
 
 struct BarView: View {
     var bar: Bar
+    @State var isFavourite = false // TODO: check coredata for favourites
+    
+    func addToFavourites() {
+        //TODO: add to coredata
+    }
+
+    func removeFromFavourites() {
+        //TODO: remove from coredata
+    }
+
+    func openMap() {
+        //TODO: open bar in apple maps
+    }
 
     var body: some View {
         VStack {
-            Text(bar.getName()).modifier(BarTitleModifier()).padding(.horizontal,20)
+            Text(bar.getName()).modifier(BarTitleModifier()).padding(.horizontal,20).padding(.top, 15)
             HStack {
                 HStack {
                     Image(systemName: "star").padding(.leading,5).padding(.vertical,5)
                     Text(String(bar.getRating()) + " / 5.0").padding(.trailing,5)
-                }.modifier(BarRatingModifier())
+                }.modifier(BarTextModifier())
                 Text(bar.getBarType()).modifier(BarTextModifier())
             }.padding(.top, -10)
             
-            //Image()
+            //TODO: get images of the bars from an online source
+            Image("BarDefault").resizable().scaledToFit().frame(width: screenWidth/1.2)
             
             HStack {
                 Text(bar.getAddress()).modifier(BarTextModifier())
@@ -29,8 +43,21 @@ struct BarView: View {
                     Text(bar.getWebsite()).modifier(BarTextModifier())
                 }.padding(.vertical)
             }
-            Button(action: {addFavourite()})
-            {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}.padding(.bottom,5)
+            
+            Button(action: {openMap()})
+            {Image(systemName: "location.fill").modifier(BarMapsModifier())}.padding(.bottom, -screenHeight/30)
+            
+            VStack{
+                if(!isFavourite) {
+                    Button(action: {self.isFavourite = true;addToFavourites()})
+                    {Image(systemName: "star.fill").modifier(BarFavouritesModifier()).modifier(BarUncheckedStarModifier())}.padding(.bottom, 15)
+                
+                } else {
+                    Button(action: {self.isFavourite = false;removeFromFavourites()})
+                    {Image(systemName: "star.fill").modifier(BarFavouritesModifier()).modifier(BarCheckedStarModifier())}.padding(.bottom, 15)
+                }
+            }.padding(.leading, screenWidth/1.5)
+            
         }.modifier(BarGroupModifier())
     }
 }
@@ -41,6 +68,3 @@ struct BarView_Previews: PreviewProvider {
         BarView(bar: example)
     }
 }
-
-func addFavourite() {}
-
