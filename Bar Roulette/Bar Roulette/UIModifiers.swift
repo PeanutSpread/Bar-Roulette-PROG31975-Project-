@@ -121,7 +121,7 @@ struct BarMapsModifier: ViewModifier{
     }
 }
 
-struct BarFavouritesModifier: ViewModifier{
+struct BarFavouritesStarModifier: ViewModifier{
     func body(content: Content) -> some View {
         return content
             .foregroundColor(Color.eerie_black)
@@ -146,6 +146,51 @@ struct BarUncheckedStarModifier: ViewModifier{
             .overlay(
                 Image(systemName: "star.fill")
                     .font(.system(size: screenWidth/25))
+                    .foregroundColor(Color.orange_yellow)
+            )
+    }
+}
+
+// Favourites (FavouritesView) Mods ----------------------------
+
+struct FavouritesRowModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.eerie_black)
+            .background(Color.orange_yellow)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.honeydew, lineWidth: 5)
+            )
+    }
+}
+
+struct FavouritesStarModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .foregroundColor(Color.eerie_black)
+            .font(.system(size: screenWidth/10))
+    }
+}
+
+struct FavouritesCheckedStarModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .overlay(
+                Image(systemName: "star.fill")
+                    .font(.system(size: screenWidth/15))
+                    .foregroundColor(Color.honeydew)
+            )
+    }
+}
+
+struct FavouritesUncheckedStarModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .overlay(
+                Image(systemName: "star.fill")
+                    .font(.system(size: screenWidth/15))
                     .foregroundColor(Color.orange_yellow)
             )
     }

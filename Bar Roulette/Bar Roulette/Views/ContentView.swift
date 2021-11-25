@@ -15,20 +15,24 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                if(showBar) {
-                    //BarView()
+            ZStack {
+                // Background
+                Color.eerie_black.edgesIgnoringSafeArea(.all)
+                VStack {
+                    if(showBar) {
+                        //BarView()
 
-                } else {
-                    Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
-                    .modifier(RouletteButtonModifier())
+                    } else {
+                        Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
+                        .modifier(RouletteButtonModifier())
+                    }
+
                 }
-
-            }
-            .modifier(RouletteBackgroundModifier())
-            .toolbar{
-                Button(action: {})
-                {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
+                .modifier(RouletteBackgroundModifier())
+                .toolbar{
+                    Button(action: {})
+                    {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
+                }
             }
         }
     }

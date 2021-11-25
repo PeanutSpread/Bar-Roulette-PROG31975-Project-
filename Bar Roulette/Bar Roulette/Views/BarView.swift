@@ -9,6 +9,7 @@ import SwiftUI
 struct BarView: View {
     var bar: Bar
     @State var isFavourite = false // TODO: check coredata for favourites
+    @EnvironmentObject var coreDBH : CoreDBHelper
     
     func addToFavourites() {
         //TODO: add to coredata
@@ -50,11 +51,11 @@ struct BarView: View {
             VStack{
                 if(!isFavourite) {
                     Button(action: {self.isFavourite = true;addToFavourites()})
-                    {Image(systemName: "star.fill").modifier(BarFavouritesModifier()).modifier(BarUncheckedStarModifier())}.padding(.bottom, 15)
+                    {Image(systemName: "star.fill").modifier(BarFavouritesStarModifier()).modifier(BarUncheckedStarModifier())}.padding(.bottom, 15)
                 
                 } else {
                     Button(action: {self.isFavourite = false;removeFromFavourites()})
-                    {Image(systemName: "star.fill").modifier(BarFavouritesModifier()).modifier(BarCheckedStarModifier())}.padding(.bottom, 15)
+                    {Image(systemName: "star.fill").modifier(BarFavouritesStarModifier()).modifier(BarCheckedStarModifier())}.padding(.bottom, 15)
                 }
             }.padding(.leading, screenWidth/1.5)
             
