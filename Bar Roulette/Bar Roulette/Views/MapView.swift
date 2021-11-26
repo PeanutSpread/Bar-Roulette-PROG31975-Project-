@@ -33,6 +33,8 @@ class Coordinator: NSObject, MKMapViewDelegate {
 
 struct MapView: UIViewRepresentable {
     
+    let landmark: [LandMark]
+    
     func makeUIView(context: Context) -> MKMapView {
         let map = MKMapView()
         map.showsUserLocation = true

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AD27518F620053A1C7 /* LocationHelper.swift */; };
 		4137C4B0275191000053A1C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AF275191000053A1C7 /* MapView.swift */; };
+		4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4B1275193D50053A1C7 /* Landmark.swift */; };
 		41A9D934273C619100BEB394 /* BarRoulette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D932273C619100BEB394 /* BarRoulette.xcdatamodeld */; };
 		41A9D936273C65B600BEB394 /* BarMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D935273C65B600BEB394 /* BarMO.swift */; };
 		41A9D939273C687100BEB394 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D938273C687100BEB394 /* Persistence.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		4137C4AD27518F620053A1C7 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		4137C4AF275191000053A1C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4137C4B1275193D50053A1C7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		41A9D933273C619100BEB394 /* BarRoulette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarRoulette.xcdatamodel; sourceTree = "<group>"; };
 		41A9D935273C65B600BEB394 /* BarMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMO.swift; sourceTree = "<group>"; };
 		41A9D938273C687100BEB394 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				8254C96927399C0900EFD6A4 /* Bar.swift */,
 				41A9D935273C65B600BEB394 /* BarMO.swift */,
+				4137C4B1275193D50053A1C7 /* Landmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */,
 				41A9D939273C687100BEB394 /* Persistence.swift in Sources */,
 				4137C4B0275191000053A1C7 /* MapView.swift in Sources */,
 				4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */,
