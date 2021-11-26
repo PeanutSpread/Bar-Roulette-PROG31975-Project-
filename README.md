@@ -38,8 +38,10 @@ NOTE: Ammar has dropped the course. Luke and Akshay will be responsible for impl
 <p> -Implemented MapView functionality. We probably will not use the map but will definitely use LandMark retrieval functionality. Created LandMark Model. </p>
 
 <h2> Luke: </h2>
-<p> </p>
-
-
+<p> -Implemented BarView, ContentView and Favourites View, Most likely not finished and will see constant tweaks and changes. </p>
+<p> -Implemented the ability to navigate between views, Not all are functional as they rely on a location passed to them. </p>
+<p> -Implemented the UI modifiers that sefine the overall look of the application. </p>
+<p> -Created custom artwork for the app icon and bar image placeholder in aseprite. </p>
+<p> -Implemented the use of a custom app icon. </p>
 
 
