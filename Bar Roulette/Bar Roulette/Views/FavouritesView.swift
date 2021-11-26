@@ -15,7 +15,7 @@ struct FavouritesView: View {
             Color.eerie_black.edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Favourite Bars")
+                Text("Favourite Bars").modifier(FavouritesTitleModifier())
                 List {
                     ForEach (coreDBH.barList.enumerated().map({$0}), id: \.element.self){ indx, currentBar in
                         BarRow(favouriteBar: currentBar)
@@ -76,8 +76,9 @@ struct BarRow: View {
 
 struct FavouritesView_Previews: PreviewProvider {
     static var previews: some View {
+        let coreDBH = CoreDBHelper(context: PersistenceController.shared.container.viewContext)
         let example = Bar(Id: UUID(), Name: "Monaghan's Sports Pub & Grill", BarType: "Sports Bar", Rating: 3.0, Latitude: 43.470734, Longitude: -79.694534, Address: "1289 Marlborough Court \nOakville ON L6H 2R9 \nCanada", Phone: "+1 (905) 842-4435", Website: "monaghans.ca")
-        //FavouritesView()
-        BarRow(favouriteBar: example)
+        FavouritesView().environmentObject(coreDBH)
+        //BarRow(favouriteBar: example)
     }
 }

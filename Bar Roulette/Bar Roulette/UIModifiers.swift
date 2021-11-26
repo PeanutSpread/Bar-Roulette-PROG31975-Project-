@@ -51,12 +51,12 @@ struct RouletteFavouritesModifier: ViewModifier{
     func body(content: Content) -> some View {
         return content
             .foregroundColor(Color.honeydew)
-            .font(.system(size: screenWidth/10))
+            .font(.system(size: screenWidth/12))
             .padding(.vertical, 5)
             .padding(.horizontal, 15)
             .overlay(
                 Image(systemName: "star.fill")
-                    .font(.system(size: screenWidth/15))
+                    .font(.system(size: screenWidth/17))
                     .foregroundColor(Color.orange_yellow)
             )
     }
@@ -195,3 +195,18 @@ struct FavouritesUncheckedStarModifier: ViewModifier{
             )
     }
 }
+
+struct FavouritesTitleModifier: ViewModifier{
+    func body(content: Content) -> some View {
+        return content
+            .font(.title)
+            .padding(12)
+            .background(Color.orange_yellow)
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.honeydew, lineWidth: 5)
+            )
+    }
+}
+

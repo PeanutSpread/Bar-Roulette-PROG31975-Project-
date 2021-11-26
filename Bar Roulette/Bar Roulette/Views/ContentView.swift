@@ -7,7 +7,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var coreDBH : CoreDBHelper
     @State private var showBar = false
+    @State private var selection: Int? = 0
 
     init(){
         UINavigationBar.appearance().backgroundColor = .eerie_black
@@ -16,6 +18,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                NavigationLink(destination: FavouritesView(), tag: 1, selection: self.$selection){}.hidden()
                 // Background
                 Color.eerie_black.edgesIgnoringSafeArea(.all)
                 VStack {
@@ -30,7 +33,7 @@ struct ContentView: View {
                 }
                 .modifier(RouletteBackgroundModifier())
                 .toolbar{
-                    Button(action: {})
+                    Button(action: {self.selection = 1})
                     {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
                 }
             }
