@@ -15,9 +15,11 @@
 
 <h1> WORK DISTRIBUTION </h1>
 
+NOTE: Ammar has dropped the course. Luke and Akshay will be responsible for implementing his assigned workload.
+
 <h2> Akshay will be responsible for: </h2>
-<p> •	A favorites section of bars view using data persistence (Coredata or Cloud Firestore), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
-<p> •	App Clip implementation that uses Uber and Apple Maps icons to direct the user to these apps once clicked along with the location (latitude, longitude) to the apps. </p>
+<p> •	A favorites section of bars view using data persistence (Coredata), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
+<p> •	A Widget that shows the nearest bar at all times based on current location. </p>
 
 <h2> Luke will be responsible for: </h2>
 <p> •	The UI and UX part of the app of “Bar Roulette.” It will be designed for a user-friendly experience, while being easy to navigate to different views and pages of the app. </p>
