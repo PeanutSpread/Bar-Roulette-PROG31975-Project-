@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AD27518F620053A1C7 /* LocationHelper.swift */; };
+		4137C4B0275191000053A1C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AF275191000053A1C7 /* MapView.swift */; };
 		41A9D934273C619100BEB394 /* BarRoulette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D932273C619100BEB394 /* BarRoulette.xcdatamodeld */; };
 		41A9D936273C65B600BEB394 /* BarMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D935273C65B600BEB394 /* BarMO.swift */; };
 		41A9D939273C687100BEB394 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D938273C687100BEB394 /* Persistence.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		4137C4AD27518F620053A1C7 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		4137C4AF275191000053A1C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		41A9D933273C619100BEB394 /* BarRoulette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarRoulette.xcdatamodel; sourceTree = "<group>"; };
 		41A9D935273C65B600BEB394 /* BarMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMO.swift; sourceTree = "<group>"; };
 		41A9D938273C687100BEB394 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				8296BD8D270AA2F8005A88F3 /* ContentView.swift */,
 				8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */,
 				827CADEB273CA1AD006192D7 /* BarView.swift */,
+				4137C4AF275191000053A1C7 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A9D939273C687100BEB394 /* Persistence.swift in Sources */,
+				4137C4B0275191000053A1C7 /* MapView.swift in Sources */,
 				4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */,
 				8254C9702739AC1600EFD6A4 /* UIModifiers.swift in Sources */,
 				8296BD8E270AA2F8005A88F3 /* ContentView.swift in Sources */,
