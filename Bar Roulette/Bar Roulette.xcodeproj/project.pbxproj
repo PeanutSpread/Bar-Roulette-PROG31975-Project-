@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AD27518F620053A1C7 /* LocationHelper.swift */; };
+		4137C4B0275191000053A1C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AF275191000053A1C7 /* MapView.swift */; };
+		4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4B1275193D50053A1C7 /* Landmark.swift */; };
 		41A9D934273C619100BEB394 /* BarRoulette.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D932273C619100BEB394 /* BarRoulette.xcdatamodeld */; };
 		41A9D936273C65B600BEB394 /* BarMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D935273C65B600BEB394 /* BarMO.swift */; };
 		41A9D939273C687100BEB394 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D938273C687100BEB394 /* Persistence.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4137C4AD27518F620053A1C7 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		4137C4AF275191000053A1C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4137C4B1275193D50053A1C7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		41A9D933273C619100BEB394 /* BarRoulette.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BarRoulette.xcdatamodel; sourceTree = "<group>"; };
 		41A9D935273C65B600BEB394 /* BarMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMO.swift; sourceTree = "<group>"; };
 		41A9D938273C687100BEB394 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -87,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4137C4AC27518F520053A1C7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4137C4AD27518F620053A1C7 /* LocationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		41A9D937273C685C00BEB394 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 				8296BD8D270AA2F8005A88F3 /* ContentView.swift */,
 				8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */,
 				827CADEB273CA1AD006192D7 /* BarView.swift */,
+				4137C4AF275191000053A1C7 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +126,7 @@
 			children = (
 				8254C96927399C0900EFD6A4 /* Bar.swift */,
 				41A9D935273C65B600BEB394 /* BarMO.swift */,
+				4137C4B1275193D50053A1C7 /* Landmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +154,7 @@
 		8296BD8A270AA2F8005A88F3 /* Bar Roulette */ = {
 			isa = PBXGroup;
 			children = (
+				4137C4AC27518F520053A1C7 /* Helpers */,
 				41A9D937273C685C00BEB394 /* Controllers */,
 				8254C96827399B2400EFD6A4 /* Models */,
 				8254C96727399B1C00EFD6A4 /* Views */,
@@ -305,7 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */,
 				41A9D939273C687100BEB394 /* Persistence.swift in Sources */,
+				4137C4B0275191000053A1C7 /* MapView.swift in Sources */,
+				4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */,
 				8254C9702739AC1600EFD6A4 /* UIModifiers.swift in Sources */,
 				8296BD8E270AA2F8005A88F3 /* ContentView.swift in Sources */,
 				41A9D934273C619100BEB394 /* BarRoulette.xcdatamodeld in Sources */,
@@ -478,6 +498,8 @@
 				DEVELOPMENT_TEAM = 9S746CAN84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Bar Roulette app needs location permission to provide you optimized expereince.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Bar Roulette app needs location permission to provide you optimized expereince.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -508,6 +530,8 @@
 				DEVELOPMENT_TEAM = 9S746CAN84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Bar Roulette app needs location permission to provide you optimized expereince.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Bar Roulette app needs location permission to provide you optimized expereince.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

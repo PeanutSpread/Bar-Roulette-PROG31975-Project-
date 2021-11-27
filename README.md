@@ -15,9 +15,11 @@
 
 <h1> WORK DISTRIBUTION </h1>
 
+NOTE: Ammar has dropped the course. Luke and Akshay will be responsible for implementing his assigned workload.
+
 <h2> Akshay will be responsible for: </h2>
-<p> •	A favorites section of bars view using data persistence (Coredata or Cloud Firestore), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
-<p> •	App Clip implementation that uses Uber and Apple Maps icons to direct the user to these apps once clicked along with the location (latitude, longitude) to the apps. </p>
+<p> •	A favorites section of bars view using data persistence (Coredata), where users will have their saved bars on the page, so they don’t have to take time to search up the bar again. </p>
+<p> •	A Widget that shows the nearest bar at all times based on current location. </p>
 
 <h2> Luke will be responsible for: </h2>
 <p> •	The UI and UX part of the app of “Bar Roulette.” It will be designed for a user-friendly experience, while being easy to navigate to different views and pages of the app. </p>
@@ -26,4 +28,20 @@
 <h2> Ammar will be responsible for: </h2>
 <p> •	Fetching the list of bars. It will use location services to find nearby bars in the user’s location radius. </p>
 <p> •	the interaction of views, which will be made sure to be user-friendly e.g., ease and speed of navigation through the app. </p>
+
+<h1> PROGRESS MADE: </h1>
+<h2> Akshay: </h2>
+<p> -Implemented CoreData functionality (create, retrieve, delete. Update is not necessary in this app. </p>
+<p> -Implemented Persistence and CoreDBHelper to help with CoreData functionality </p>
+<p> -Implemented bar class, needs more work based on landmark information </p>
+<p> -Implemented LocationManager </p>
+<p> -Implemented MapView functionality. We probably will not use the map but will definitely use LandMark retrieval functionality. Created LandMark Model. </p>
+
+<h2> Luke: </h2>
+<p> -Implemented BarView, ContentView and Favourites View, Most likely not finished and will see constant tweaks and changes. </p>
+<p> -Implemented the ability to navigate between views, Not all are functional as they rely on a location passed to them. </p>
+<p> -Implemented the UI modifiers that sefine the overall look of the application. </p>
+<p> -Created custom artwork for the app icon and bar image placeholder in aseprite. </p>
+<p> -Implemented the use of a custom app icon. </p>
+
 
