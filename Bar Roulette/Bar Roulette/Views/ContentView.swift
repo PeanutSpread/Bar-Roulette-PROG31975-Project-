@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var coreDBH: CoreDBHelper
     @EnvironmentObject var locationHelper: LocationHelper
     @EnvironmentObject var detailsHelper: DetailsHelper
+    
 
     init(){
         UINavigationBar.appearance().backgroundColor = .eerie_black
@@ -29,6 +30,7 @@ struct ContentView: View {
             if let response = response {
                 
                 let mapItems = response.mapItems
+                print(mapItems.first?.placemark.coordinate)
                 landmarks = mapItems.map {
                     LandMark(placemark: $0.placemark)
                 }

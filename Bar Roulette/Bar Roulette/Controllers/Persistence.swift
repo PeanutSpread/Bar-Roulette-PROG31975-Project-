@@ -21,7 +21,7 @@ struct PersistenceController {
     let container : NSPersistentContainer
     
     init(inMemory: Bool = false){
-        container = NSPersistentContainer(name: "BarDB")
+        container = NSPersistentContainer(name: "BarMO")
         
         if inMemory{
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
@@ -29,7 +29,7 @@ struct PersistenceController {
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError?{
-                print("Unable to access BarDB. \(error)")
+                print("Unable to access BarMO. \(error)")
             }
         })
     }
