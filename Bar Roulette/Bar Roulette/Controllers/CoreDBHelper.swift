@@ -48,11 +48,11 @@ class CoreDBHelper : ObservableObject{
             
             if self.MOC.hasChanges{
                 try self.MOC.save()
-                print(#function, "Order successfully added to DB")
+                print(#function, "Bar successfully added to DB")
             }
             
         }catch let error as NSError{
-            print(#function, "Could not insert book successfully \(error)")
+            print(#function, "Could not insert bar successfully \(error)")
         }
     }
     
