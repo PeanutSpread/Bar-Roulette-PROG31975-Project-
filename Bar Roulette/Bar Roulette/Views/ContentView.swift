@@ -13,36 +13,16 @@ struct ContentView: View {
     @EnvironmentObject var coreDBH: CoreDBHelper
     @EnvironmentObject var locationHelper: LocationHelper
     @EnvironmentObject var detailsHelper: DetailsHelper
+    @State private var localBars: [Bar] = [Bar]()
     
-
     init(){
         UINavigationBar.appearance().backgroundColor = .eerie_black
-    }
-    
-    func getNearbyLandmarks() -> [LandMark]{
-        var landmarks: [LandMark] = [LandMark]()
-        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = SEARCH
-        
-        let search = MKLocalSearch(request: request)
-        search.start { (response, error) in
-            if let response = response {
-                
-                let mapItems = response.mapItems
-                print(mapItems.first?.placemark.coordinate)
-                landmarks = mapItems.map {
-                    LandMark(placemark: $0.placemark)
-                }
-            }
-        }
-        return landmarks
     }
 
     var body: some View {
         VStack {
             if (self.locationHelper.currentLocation != nil){
-                MainView(Landmarks: getNearbyLandmarks()).environmentObject(coreDBH).environmentObject(locationHelper).environmentObject(detailsHelper)
+                MainView().environmentObject(coreDBH).environmentObject(locationHelper).environmentObject(detailsHelper)
             }else{
                 Text("Obtaining user location...")
             }
@@ -54,39 +34,32 @@ struct MainView : View {
     @EnvironmentObject var coreDBH: CoreDBHelper
     @EnvironmentObject var locationHelper: LocationHelper
     @EnvironmentObject var detailsHelper: DetailsHelper
-    @State private var landmarks: [LandMark]
-    @State private var bars: [Bar] = [Bar]()
+    @State private var localBars: [Bar] = [Bar]()
     @State private var showBar = false
     @State private var selection: Int? = 0
 
-    init(Landmarks landmarks: [LandMark]){
+    init(){
         UINavigationBar.appearance().backgroundColor = .eerie_black
-        self.landmarks = landmarks
     }
     
-    func getNearbyBars() {
-        landmarks.forEach { pub in
-            bars.append(Bar(Id: UUID(), Name: pub.name, BarType: "", Rating: 0, Latitude: pub.coordinate.latitude , Longitude: pub.coordinate.longitude, Address: pub.title, Phone: "", Website: ""))
+    func getNearbyLocations(){
+        let request = MKLocalSearch.Request()
+        
+        request.naturalLanguageQuery = SEARCH
+        request.pointOfInterestFilter = .includingAll
+        request.resultTypes = .pointOfInterest
+        request.region = MKCoordinateRegion(center: locationHelper.currentLocation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            if let response = response {
+                
+                let mapItems = response.mapItems
+                mapItems.forEach { location in
+                    self.localBars.append(Bar(Id: UUID(), Name: location.name ?? "", BarType: "Sports Bar", Rating: 3.0, Latitude: location.placemark.coordinate.latitude, Longitude: location.placemark.coordinate.longitude, Address: location.placemark.title ?? "", Phone: "+1 (905) 842-4435", Website: "monaghans.ca"))
+                }
+            }
         }
-        //detailsHelper.clearDetailsList()
-        /*landmarks.forEach { pub in
-            detailsHelper.fetchData(latitude: pub.coordinate.latitude, longitude: pub.coordinate.longitude)
-        }*/
-    }
-    
-    func landmarksToBars() {
-        for  i in 0...landmarks.count {
-            let properties = detailsHelper.detailsList[i].features[0].properties
-            let location = detailsHelper.detailsList[i].features[0].geometry.coordinates
-            
-            bars.append(Bar(Id: UUID(), Name: landmarks[i].name, BarType: "", Rating: 0, Latitude: location[1], Longitude: location[0], Address: landmarks[i].title, Phone: properties.contact.phone, Website: properties.website))
-        }
-    }
-    
-    func shuffleAndDeal() -> Bar{
-        //TODO: randomize the bar list
-        bars.shuffle()
-        return bars[0]
     }
 
     var body: some View {
@@ -96,9 +69,9 @@ struct MainView : View {
                 // Background
                 Color.eerie_black.edgesIgnoringSafeArea(.all)
                 VStack {
-                    if (!landmarks.isEmpty) {
+                    if (!localBars.isEmpty) {
                         if(showBar) {
-                            BarView(bar: shuffleAndDeal())
+                            //BarView(bar: shuffleAndDeal())
 
                         } else {
                             Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
@@ -112,7 +85,9 @@ struct MainView : View {
                     {Image(systemName: "star.fill").modifier(RouletteFavouritesModifier())}
                 }
             }
-        }
+        }.onAppear(perform: {
+            getNearbyLocations()
+        })
     }
 }
   
