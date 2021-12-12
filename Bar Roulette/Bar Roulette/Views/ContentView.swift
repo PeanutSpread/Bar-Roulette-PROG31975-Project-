@@ -61,6 +61,12 @@ struct MainView : View {
             }
         }
     }
+    
+    func shuffleAndDeal() -> Bar{
+        var bars = localBars
+        bars.shuffle()
+        return bars[0]
+    }
 
     var body: some View {
         NavigationView {
@@ -71,7 +77,7 @@ struct MainView : View {
                 VStack {
                     if (!localBars.isEmpty) {
                         if(showBar) {
-                            //BarView(bar: shuffleAndDeal())
+                            BarView(bar: shuffleAndDeal())
 
                         } else {
                             Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
