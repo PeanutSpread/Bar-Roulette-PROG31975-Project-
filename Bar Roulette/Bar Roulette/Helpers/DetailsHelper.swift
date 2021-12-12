@@ -11,9 +11,12 @@ import Foundation
 import SwiftUI
 
 class DetailsHelper : ObservableObject{
-    @Published var DetailsList = [Details]()
-    @Published var image = UIImage()
-    var baseApiURL = "https://api.geoapify.com/v2/place-details?apiKey=04b9ff136cb3428caf4da0600dfd534a"
+    @Published var detailsList = [Details]()
+    var baseApiURL = "https://api.geoapify.com/v2/place-details?apiKey=04b9ff136cb3428caf4da0600dfd534a&feature=restaurant"
+    
+    func clearDetailsList() {
+        detailsList.removeAll()
+    }
      
     func fetchData(latitude lat: Double, longitude lon: Double) {
         let end = "&lat=" + String(lat) + "&lon=" + String(lon)
@@ -49,11 +52,7 @@ class DetailsHelper : ObservableObject{
                                     
                                                 
                                         DispatchQueue.main.async {
-                                            if (self.DetailsList.isEmpty) {
-                                                    self.DetailsList.append(decodedDetails)
-                                                } else {
-                                                    self.DetailsList[0] = decodedDetails
-                                                }
+                                                self.detailsList.append(decodedDetails)
                                                     
                                                     /*let test = self.reportList[0].location.country
                                                     print("\n" + test + " here \n")*/

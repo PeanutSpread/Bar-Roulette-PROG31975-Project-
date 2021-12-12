@@ -11,9 +11,11 @@ import SwiftUI
 struct Bar_RouletteApp: App {
     let persistenceController = PersistenceController.shared
     let coreDBHelper = CoreDBHelper(context: PersistenceController.shared.container.viewContext)
+    let locationHelper = LocationHelper()
+    let detailsHelper = DetailsHelper()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(coreDBHelper)
+            ContentView().environmentObject(coreDBHelper).environmentObject(locationHelper).environmentObject(detailsHelper)
         }
     }
 }

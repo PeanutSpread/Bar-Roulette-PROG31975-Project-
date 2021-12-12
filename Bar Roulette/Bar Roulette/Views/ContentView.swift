@@ -7,21 +7,20 @@
 import SwiftUI
 import MapKit
 
-let SEARCH = "bar"
+let SEARCH = "bars"
 
 struct ContentView: View {
     @EnvironmentObject var coreDBH: CoreDBHelper
     @EnvironmentObject var locationHelper: LocationHelper
-    @State private var landmarks: [LandMark] = [LandMark]()
-    @State private var bars: [Bar] = [Bar]()
-    @State private var showBar = false
-    @State private var selection: Int? = 0
+    @EnvironmentObject var detailsHelper: DetailsHelper
 
     init(){
         UINavigationBar.appearance().backgroundColor = .eerie_black
     }
     
-    func getNearbyBars() {
+    func getNearbyLandmarks() -> [LandMark]{
+        var landmarks: [LandMark] = [LandMark]()
+        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = SEARCH
         
@@ -30,19 +29,62 @@ struct ContentView: View {
             if let response = response {
                 
                 let mapItems = response.mapItems
-                self.landmarks = mapItems.map {
+                landmarks = mapItems.map {
                     LandMark(placemark: $0.placemark)
                 }
             }
         }
-        
+        return landmarks
+    }
+
+    var body: some View {
+        VStack {
+            if (self.locationHelper.currentLocation != nil){
+                MainView(Landmarks: getNearbyLandmarks()).environmentObject(coreDBH).environmentObject(locationHelper).environmentObject(detailsHelper)
+            }else{
+                Text("Obtaining user location...")
+            }
+        }
+    }
+}
+
+struct MainView : View {
+    @EnvironmentObject var coreDBH: CoreDBHelper
+    @EnvironmentObject var locationHelper: LocationHelper
+    @EnvironmentObject var detailsHelper: DetailsHelper
+    @State private var landmarks: [LandMark]
+    @State private var bars: [Bar] = [Bar]()
+    @State private var showBar = false
+    @State private var selection: Int? = 0
+
+    init(Landmarks landmarks: [LandMark]){
+        UINavigationBar.appearance().backgroundColor = .eerie_black
+        self.landmarks = landmarks
+    }
+    
+    func getNearbyBars() {
         landmarks.forEach { pub in
-            //TODO: get more info on the location (i.e. rating)
+            bars.append(Bar(Id: UUID(), Name: pub.name, BarType: "", Rating: 0, Latitude: pub.coordinate.latitude , Longitude: pub.coordinate.longitude, Address: pub.title, Phone: "", Website: ""))
+        }
+        //detailsHelper.clearDetailsList()
+        /*landmarks.forEach { pub in
+            detailsHelper.fetchData(latitude: pub.coordinate.latitude, longitude: pub.coordinate.longitude)
+        }*/
+    }
+    
+    func landmarksToBars() {
+        for  i in 0...landmarks.count {
+            let properties = detailsHelper.detailsList[i].features[0].properties
+            let location = detailsHelper.detailsList[i].features[0].geometry.coordinates
+            
+            bars.append(Bar(Id: UUID(), Name: landmarks[i].name, BarType: "", Rating: 0, Latitude: location[1], Longitude: location[0], Address: landmarks[i].title, Phone: properties.contact.phone, Website: properties.website))
         }
     }
     
-    func shuffleAndDeal() {
+    func shuffleAndDeal() -> Bar{
         //TODO: randomize the bar list
+        bars.shuffle()
+        return bars[0]
     }
 
     var body: some View {
@@ -52,14 +94,15 @@ struct ContentView: View {
                 // Background
                 Color.eerie_black.edgesIgnoringSafeArea(.all)
                 VStack {
-                    if(showBar) {
-                        //BarView()
+                    if (!landmarks.isEmpty) {
+                        if(showBar) {
+                            BarView(bar: shuffleAndDeal())
 
-                    } else {
-                        Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
-                        .modifier(RouletteButtonModifier())
+                        } else {
+                            Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
+                            .modifier(RouletteButtonModifier())
+                        }
                     }
-
                 }
                 .modifier(RouletteBackgroundModifier())
                 .toolbar{
