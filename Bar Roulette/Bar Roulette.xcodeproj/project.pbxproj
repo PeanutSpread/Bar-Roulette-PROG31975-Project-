@@ -25,6 +25,8 @@
 		8296BD9D270AA2FA005A88F3 /* Bar_RouletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296BD9C270AA2FA005A88F3 /* Bar_RouletteTests.swift */; };
 		8296BDA7270AA2FA005A88F3 /* Bar_RouletteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296BDA6270AA2FA005A88F3 /* Bar_RouletteUITests.swift */; };
 		8296BDA9270AA2FA005A88F3 /* Bar_RouletteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296BDA8270AA2FA005A88F3 /* Bar_RouletteUITestsLaunchTests.swift */; };
+		82CF28F92765723100076FE5 /* DetailsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF28F82765723100076FE5 /* DetailsHelper.swift */; };
+		82CF28FB276587D800076FE5 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF28FA276587D800076FE5 /* Details.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		8296BDA2270AA2FA005A88F3 /* Bar RouletteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bar RouletteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8296BDA6270AA2FA005A88F3 /* Bar_RouletteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_RouletteUITests.swift; sourceTree = "<group>"; };
 		8296BDA8270AA2FA005A88F3 /* Bar_RouletteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar_RouletteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82CF28F82765723100076FE5 /* DetailsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHelper.swift; sourceTree = "<group>"; };
+		82CF28FA276587D800076FE5 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				4137C4AD27518F620053A1C7 /* LocationHelper.swift */,
+				82CF28F82765723100076FE5 /* DetailsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 				8254C96927399C0900EFD6A4 /* Bar.swift */,
 				41A9D935273C65B600BEB394 /* BarMO.swift */,
 				4137C4B1275193D50053A1C7 /* Landmark.swift */,
+				82CF28FA276587D800076FE5 /* Details.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 				8254C96A27399C0900EFD6A4 /* Bar.swift in Sources */,
 				41A9D93B273C6A0E00BEB394 /* CoreDBHelper.swift in Sources */,
 				8296BD8C270AA2F8005A88F3 /* Bar_RouletteApp.swift in Sources */,
+				82CF28FB276587D800076FE5 /* Details.swift in Sources */,
 				8254C96C2739A2AC00EFD6A4 /* FavouritesView.swift in Sources */,
+				82CF28F92765723100076FE5 /* DetailsHelper.swift in Sources */,
 				41A9D936273C65B600BEB394 /* BarMO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
