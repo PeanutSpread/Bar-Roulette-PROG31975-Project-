@@ -40,10 +40,14 @@ NOTE: Ammar has dropped the course. Luke and Akshay will be responsible for impl
 <p> -Helped with the debugging of obtaining bars in the main app</p>
 
 <h2> Luke: </h2>
-<p> -Implemented BarView, ContentView and Favourites View, Most likely not finished and will see constant tweaks and changes. </p>
+<p> -Implemented BarView, ContentView and Favourites View, fully finished but a little buggy. </p>
 <p> -Implemented the ability to navigate between views, Not all are functional as they rely on a location passed to them. </p>
 <p> -Implemented the UI modifiers that sefine the overall look of the application. </p>
 <p> -Created custom artwork for the app icon and bar image placeholder in aseprite. </p>
 <p> -Implemented the use of a custom app icon. </p>
-
+<p> -Implemented location retrieval and searching. </p>
+<p> -Implemented the ability to view the bar on apple maps through the press of a button </p>
+<p> -Implemented the randomization of bars. </p>
+<p> -Implemented interaction with the database. </p>
+<p> -Fixed a bunch of bugs. </p>
 
