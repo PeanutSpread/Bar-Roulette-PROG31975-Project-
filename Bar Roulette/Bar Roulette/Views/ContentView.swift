@@ -60,6 +60,7 @@ struct MainView : View {
                 let mapItems = response.mapItems
                 self.mapItemList = mapItems
                 mapItems.forEach { location in
+                    detailsHelper.fetchData(latitude: location.placemark.coordinate.latitude, longitude: location.placemark.coordinate.longitude)
                     var adjustedURL = ""
                     if (location.url!.path != "" || location.url!.path == "/") {
                         adjustedURL = "www." + String.lowercased(location.name!)().replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-.*", with: "") + location.url!.path
@@ -72,11 +73,9 @@ struct MainView : View {
     
     func updateBars() {
         for i in 0...(localBars.count - 1) {
-            let partcut = detailsHelper.detailsList[i].features
-            if (!partcut.isEmpty) {
-                let fullcut = partcut[0].properties
-                localBars[i].phone = fullcut.contact?.phone ?? ""
-                localBars[i].website = fullcut.website ?? ""
+            let shortcut = detailsHelper.detailsList[i].buisinesses
+            if (!shortcut.isEmpty) {
+                localBars[i].rating = shortcut[0].rating
             }
         }
     }
@@ -118,11 +117,5 @@ struct MainView : View {
                 updateBars()
             }
         })
-    }
-}
-  
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

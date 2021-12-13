@@ -5,67 +5,34 @@
 //  Created by Luke Van Rooyen on 2021-12-11.
 //
 
-// API KEY 04b9ff136cb3428caf4da0600dfd534a
-/* EXAMPLE https://api.geoapify.com/v2/place-details?apiKey=04b9ff136cb3428caf4da0600dfd534a&lat=43.470734&lon=-79.694534 */
+// API KEY Dq1WJrfSAN3boRFSIkK36o_r2tEum8KbjKHs7Xd4H_Wzf8OMFRxCG8m0hdgPIvUd52HPpW3az1B2sOrtUgNggjLXT0T2ydOqI8dxA9_bvJtwGcB-PCQKeTNuiZu2YXYx
+// Client ID KbHFInGDo1slhrwOZ5Hguw
 import Foundation
 import SwiftUI
 
 class DetailsHelper : ObservableObject{
     @Published var detailsList = [Details]()
-    var baseApiURL = "https://api.geoapify.com/v2/place-details?apiKey=04b9ff136cb3428caf4da0600dfd534a"
+    var apiKey = "Dq1WJrfSAN3boRFSIkK36o_r2tEum8KbjKHs7Xd4H_Wzf8OMFRxCG8m0hdgPIvUd52HPpW3az1B2sOrtUgNggjLXT0T2ydOqI8dxA9_bvJtwGcB-PCQKeTNuiZu2YXYx"
     
     func clearDetailsList() {
         detailsList.removeAll()
     }
      
-    func fetchData(placeId id: String) {
-        let end = "&id=" + id
-        let apiURL = baseApiURL + end
-        print(apiURL)
-        guard let api = URL(string: apiURL) else {
-            print(#function, "Unable to obtain URL from String")
-            return
-        }
+    func fetchData(latitude lat: Double, longitude lon: Double) {
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(lon)")
+        var request = URLRequest(url: url!)
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
         
-        URLSession.shared.dataTask(with: api) {(data: Data?, response: URLResponse?, error: Error?) in
-            
-            if let error = error {
-                print(#function, error)
-            }else{
-                
-                if let httpResponse = response as? HTTPURLResponse{
-                    if httpResponse.statusCode == 200{
-                        
-                        DispatchQueue.global().async {
-                            do{
-                                if (data != nil){
-                                    
-                                    if let jsonData = data{
-                                        
-                                        //indicates that you are expecting a single JSON object from API
-                                        let decodedDetails = try! JSONDecoder().decode(Details.self, from: jsonData)
-                                        
-                                        guard data != nil else{
-                                            print(#function, "Image data not obtained")
-                                            return
-                                        }
-                                    
-                                                
-                                        DispatchQueue.main.async {
-                                                self.detailsList.append(decodedDetails)
-                                                    
-                                                    /*let test = self.reportList[0].location.country
-                                                    print("\n" + test + " here \n")*/
-                                                }
-                                            }
-                                }
-                                
-                            }
-                        }
-                    }else{
-                        print(#function, "No response obtained from network call")
-                    }
-                }
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let err = error {
+                print(err.localizedDescription)
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                print(">>>>>", json, #line, "<<<<<<<<<")
+            } catch {
+                print("caught")
             }
         }.resume()
         

@@ -10,62 +10,62 @@
 
 import Foundation
 import UIKit
+import DeveloperToolsSupport
 
-struct Details : Codable {
-    var type : String
-    
-    struct feature : Codable {
-        var type : String
-        struct Properties : Codable {
-            var feature_type : String
-            var website : String?
-            var name : String?
-            
-            struct Contact : Codable {
-                var phone : String
-            }
-            var contact : Contact?
-            
-            struct PaymentOptions : Codable {
-                var cash : Bool
-                var visa : Bool
-                var mastercard : Bool
-                var discover_card : Bool
-                var american_express : Bool
-            }
-            var payment_options : PaymentOptions?
-            
-            var categories : [String]?
-            
-            struct Datasource : Codable {
-                var sourcename : String
-                var attribution : String
-                var license : String
-                var url : String
-            }
-            var datasource : Datasource?
-            
-            var housenumber : String?
-            var street : String?
-            var city : String?
-            var county : String?
-            var state : String?
-            var postcode : String?
-            var country : String?
-            var country_code : String?
-            var formatted : String?
-            var address_line1 : String?
-            var address_line2 : String?
-            var range : Int?
-            var lat : Double
-            var lon : Double
-            var area : Int?
-            var place_id : String?
-        }
-        var properties : Properties
+struct Details: Codable {
+    var total: Int
+    struct Buisness: Codable {
+        var rating: Double
+        var price: String
+        var phone: String
+        var id: String
+        var alias: String
+        var is_closed: Bool
         
+        struct Category: Codable {
+            var alias: String
+            var title: String
+        }
+        var categories: [Category]
+        
+        var review_count: Int
+        var name: String
+        var url: String
+        
+        struct Coordinates: Codable {
+            var latitude: Decimal
+            var longitude: Decimal
+        }
+        var coordinates: Coordinates
+        
+        var image_url: String
+        
+        struct Location: Codable {
+            var city: String
+            var country: String
+            var address2: String
+            var address3: String
+            var state: String
+            var address: String
+            var zip_code: String
+        }
+        var location: Location
+        
+        var distance: Double
+        var transactions: [String]
     }
-    var features: [feature]
+    var buisinesses: [Buisness]
+    
+    struct Region: Codable {
+        struct Center: Codable {
+            var latitude: Decimal
+            var longitude: Decimal
+        }
+        var center: Center
+    }
+    var reigon: Region
+    
+    
 }
 
 
