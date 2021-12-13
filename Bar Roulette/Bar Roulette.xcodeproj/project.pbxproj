@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		411641772766F9B600E90EAD /* BarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411641762766F9B600E90EAD /* BarHelper.swift */; };
+		411641782766FB2F00E90EAD /* BarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411641762766F9B600E90EAD /* BarHelper.swift */; };
 		4137C4AE27518F620053A1C7 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AD27518F620053A1C7 /* LocationHelper.swift */; };
 		4137C4B0275191000053A1C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AF275191000053A1C7 /* MapView.swift */; };
 		4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4B1275193D50053A1C7 /* Landmark.swift */; };
@@ -84,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		411641762766F9B600E90EAD /* BarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarHelper.swift; sourceTree = "<group>"; };
 		4137C4AD27518F620053A1C7 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		4137C4AF275191000053A1C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4137C4B1275193D50053A1C7 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
@@ -160,6 +163,7 @@
 				4137C4AD27518F620053A1C7 /* LocationHelper.swift */,
 				82CF28F82765723100076FE5 /* DetailsHelper.swift */,
 				41B0064F27665A04009FC06E /* LocationManager.swift */,
+				411641762766F9B600E90EAD /* BarHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -443,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				411641782766FB2F00E90EAD /* BarHelper.swift in Sources */,
 				41C7BF712766E73E00F8ECA4 /* LocationHelper.swift in Sources */,
 				41C7BF6C2766E6B800F8ECA4 /* BarEntry.swift in Sources */,
 				41C7BF6A2766E62200F8ECA4 /* Provider.swift in Sources */,
@@ -461,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41C7BF5B27669CBD00F8ECA4 /* BarWidget.intentdefinition in Sources */,
+				411641772766F9B600E90EAD /* BarHelper.swift in Sources */,
 				4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */,
 				41A9D939273C687100BEB394 /* Persistence.swift in Sources */,
 				4137C4B0275191000053A1C7 /* MapView.swift in Sources */,

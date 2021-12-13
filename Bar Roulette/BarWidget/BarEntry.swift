@@ -15,6 +15,6 @@ import WidgetKit
 struct BarEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
-    let bar: Bar
+    let bars: [Bar]
     
 }

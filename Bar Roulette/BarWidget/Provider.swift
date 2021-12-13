@@ -17,53 +17,43 @@ import MapKit
 struct Provider: IntentTimelineProvider {
     var locationHelper = LocationHelper()
     var detailsHelper = DetailsHelper()
+    var barHelper = BarHelper()
     let SEARCH = "bars"
-    @State private var localBars: [Bar] = [Bar]()
     
     func placeholder(in context: Context) -> BarEntry {
-        while(locationHelper.currentLocation == nil){
-            //stall
-        }
-        self.getNearbyLocations()
-        let bars = localBars
-        print(bars[0].getName())
-        while(localBars.isEmpty){
-            //stall
-        }
+        barHelper.getNearbyLocations()
         
-        return BarEntry(date: Date(), configuration: ConfigurationIntent(), bar: bars[0])
+        let bars = self.barHelper.localBars
+            
+        //print(bar.getName())
+        
+        return BarEntry(date: Date(), configuration: ConfigurationIntent(), bars: bars)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (BarEntry) -> ()) {
-        while(locationHelper.currentLocation == nil){
-            //stall
-        }
-        self.getNearbyLocations()
-        while(localBars.isEmpty){
-            //stall
-        }
-        let bars = localBars
-        let entry = BarEntry(date: Date(), configuration: ConfigurationIntent(), bar: bars[0])
+        barHelper.getNearbyLocations()
+        
+        let bars = self.barHelper.localBars
+            
+            //print(bars.getName())
+        
+        let entry = BarEntry(date: Date(), configuration: ConfigurationIntent(), bars: bars)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<BarEntry>) -> ()) {
         var entries: [BarEntry] = []
-        while(locationHelper.currentLocation == nil){
-            //stall
-        }
-        self.getNearbyLocations()
+        barHelper.getNearbyLocations()
+       
+        let bars = self.barHelper.localBars
+            
+       //print(bar.getName())
         
-        while(localBars.isEmpty){
-            //stall
-        }
-        let bars = localBars
-
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for secOffset in 0 ..< 3600 {
             let entryDate = Calendar.current.date(byAdding: .second, value:(secOffset * 30), to: currentDate)!
-            let entry = BarEntry(date: entryDate, configuration: ConfigurationIntent(), bar: bars[0])
+            let entry = BarEntry(date: entryDate, configuration: ConfigurationIntent(), bars: bars)
             entries.append(entry)
         }
 
@@ -71,23 +61,23 @@ struct Provider: IntentTimelineProvider {
         completion(timeline)
     }
     
-    func getNearbyLocations(){
-        let request = MKLocalSearch.Request()
-        
-        request.naturalLanguageQuery = SEARCH
-        request.pointOfInterestFilter = .includingAll
-        request.resultTypes = .pointOfInterest
-        request.region = MKCoordinateRegion(center: locationHelper.currentLocation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        
-        let search = MKLocalSearch(request: request)
-        search.start { (response, error) in
-            if let response = response {
-                
-                let mapItems = response.mapItems
-                mapItems.forEach { location in
-                    self.localBars.append(Bar(Id: UUID(), Name: location.name ?? "", BarType: "Sports Bar", Rating: 3.0, Latitude: location.placemark.coordinate.latitude, Longitude: location.placemark.coordinate.longitude, Address: location.placemark.title ?? "", Phone: "+1 (905) 842-4435", Website: "monaghans.ca"))
-                }
-            }
-        }
-    }
+//    func getNearbyLocations(){
+//        let request = MKLocalSearch.Request()
+//
+//        request.naturalLanguageQuery = SEARCH
+//        request.pointOfInterestFilter = .includingAll
+//        request.resultTypes = .pointOfInterest
+//        request.region = MKCoordinateRegion(center: locationHelper.currentLocation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+//
+//        let search = MKLocalSearch(request: request)
+//        search.start { (response, error) in
+//            if let response = response {
+//
+//                let mapItems = response.mapItems
+//                mapItems.forEach { location in
+//                    self.localBars.append(Bar(Id: UUID(), Name: location.name ?? "", BarType: "Sports Bar", Rating: 3.0, Latitude: location.placemark.coordinate.latitude, Longitude: location.placemark.coordinate.longitude, Address: location.placemark.title ?? "", Phone: "+1 (905) 842-4435", Website: "monaghans.ca"))
+//                }
+//            }
+//        }
+//    }
 }

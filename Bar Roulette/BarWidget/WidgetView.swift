@@ -17,9 +17,17 @@ struct WidgetView : View {
     var entry: Provider.Entry
     
     var body: some View {
+        HStack{
             VStack {
-                Text(entry.bar.getName())              
+                if(entry.bars.count > 0){
+                Text(entry.bars[0].name)
+                Text(entry.bars[0].address)
+            }
+                else {
+                    Text("Theres no bars near you")
+                }
             }
         }
+    }
 }
 
