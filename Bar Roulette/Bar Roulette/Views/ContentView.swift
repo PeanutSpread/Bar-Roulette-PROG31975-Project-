@@ -52,6 +52,7 @@ struct MainView : View {
         request.pointOfInterestFilter = .includingAll
         request.resultTypes = .pointOfInterest
         request.region = MKCoordinateRegion(center: locationHelper.currentLocation!.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        //detailsHelper.fetchData(latitude: locationHelper.currentLocation!.coordinate.latitude, longitude: locationHelper.currentLocation!.coordinate.longitude)
         
         let search = MKLocalSearch(request: request)
         search.start { (response, error) in
@@ -60,7 +61,6 @@ struct MainView : View {
                 let mapItems = response.mapItems
                 self.mapItemList = mapItems
                 mapItems.forEach { location in
-                    detailsHelper.fetchData(latitude: location.placemark.coordinate.latitude, longitude: location.placemark.coordinate.longitude)
                     var adjustedURL = ""
                     if (location.url!.path != "" || location.url!.path == "/") {
                         adjustedURL = "www." + String.lowercased(location.name!)().replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-.*", with: "") + location.url!.path
@@ -71,14 +71,14 @@ struct MainView : View {
         }
     }
     
-    func updateBars() {
+    /*func updateBars() {
         for i in 0...(localBars.count - 1) {
             let shortcut = detailsHelper.detailsList[i].buisinesses
             if (!shortcut.isEmpty) {
                 localBars[i].rating = shortcut[0].rating
             }
         }
-    }
+    }*/
     
     func shuffleAndDeal() {
         var bars = localBars
@@ -112,10 +112,10 @@ struct MainView : View {
             }
         }.onAppear(perform: {
             getNearbyLocations()
-        }).onChange(of: detailsHelper.detailsList.count, perform: {_ in
-            if (detailsHelper.detailsList.count == localBars.count) {
+        })/*.onChange(of: detailsHelper.detailsList.count, perform: {_ in
+            if (!detailsHelper.detailsList.isEmpty) {
                 updateBars()
-            }
+            }*/
         })
     }
 }

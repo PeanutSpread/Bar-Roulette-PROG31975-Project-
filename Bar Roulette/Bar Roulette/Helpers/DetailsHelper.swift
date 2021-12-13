@@ -19,7 +19,7 @@ class DetailsHelper : ObservableObject{
     }
      
     func fetchData(latitude lat: Double, longitude lon: Double) {
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(lon)")
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(lon)&term=bar")
         var request = URLRequest(url: url!)
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
@@ -31,8 +31,11 @@ class DetailsHelper : ObservableObject{
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                 print(">>>>>", json, #line, "<<<<<<<<<")
+                let jsonData = data!
+                let decoder = JSONDecoder()
+                self.detailsList.append(try decoder.decode(Details.self, from: jsonData))
             } catch {
-                print("caught")
+                print(#function, error)
             }
         }.resume()
         
