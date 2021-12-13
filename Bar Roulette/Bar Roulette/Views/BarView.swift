@@ -5,9 +5,11 @@
 //  Created by Luke Van Rooyen on 2021-11-08.
 //
 import SwiftUI
+import MapKit
 
 struct BarView: View {
     var bar: Bar
+    var mapItem: MKMapItem
     @State var isFavourite = false // TODO: check coredata for favourites
     @EnvironmentObject var coreDBH : CoreDBHelper
     
@@ -20,7 +22,7 @@ struct BarView: View {
     }
 
     func openMap() {
-        //TODO: open bar in apple maps
+        mapItem.openInMaps()
     }
 
     var body: some View {
@@ -34,14 +36,13 @@ struct BarView: View {
                 Text(bar.getBarType()).modifier(BarTextModifier())
             }.padding(.top, -10)
             
-            //TODO: get images of the bars from an online source
             Image("BarDefault").resizable().scaledToFit().frame(width: screenWidth/1.2)
             
             HStack {
-                Text(bar.getAddress()).modifier(BarTextModifier())
+                Text(bar.getAddress()).modifier(BarTextModifier()).padding(.horizontal)
                 VStack {
-                    Text(bar.getPhone()).modifier(BarTextModifier())
-                    Text(bar.getWebsite()).modifier(BarTextModifier())
+                    Text(bar.getPhone()).modifier(BarTextModifier()).padding(.horizontal)
+                    Text(bar.getWebsite()).modifier(BarTextModifier()).padding(.horizontal)
                 }.padding(.vertical)
             }
             
@@ -60,12 +61,5 @@ struct BarView: View {
             }.padding(.leading, screenWidth/1.5)
             
         }.modifier(BarGroupModifier())
-    }
-}
-
-struct BarView_Previews: PreviewProvider {
-    static var previews: some View {
-        let example = Bar(Id: UUID(), Name: "Monaghan's Sports Pub & Grill", BarType: "Sports Bar", Rating: 3.0, Latitude: 43.470734, Longitude: -79.694534, Address: "1289 Marlborough Court \nOakville ON L6H 2R9 \nCanada", Phone: "+1 (905) 842-4435", Website: "monaghans.ca")
-        BarView(bar: example)
     }
 }

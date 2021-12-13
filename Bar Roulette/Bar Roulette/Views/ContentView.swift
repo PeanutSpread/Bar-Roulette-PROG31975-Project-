@@ -35,7 +35,10 @@ struct MainView : View {
     @EnvironmentObject var locationHelper: LocationHelper
     @EnvironmentObject var detailsHelper: DetailsHelper
     @State private var localBars: [Bar] = [Bar]()
+    @State private var mapItemList: [MKMapItem] = [MKMapItem]()
+    @State private var index: Int = 0
     @State private var showBar = false
+    @State private var refresh = false
     @State private var selection: Int? = 0
 
     init(){
@@ -55,17 +58,33 @@ struct MainView : View {
             if let response = response {
                 
                 let mapItems = response.mapItems
+                self.mapItemList = mapItems
                 mapItems.forEach { location in
-                    self.localBars.append(Bar(Id: UUID(), Name: location.name ?? "", BarType: "Sports Bar", Rating: 3.0, Latitude: location.placemark.coordinate.latitude, Longitude: location.placemark.coordinate.longitude, Address: location.placemark.title ?? "", Phone: "+1 (905) 842-4435", Website: "monaghans.ca"))
+                    var adjustedURL = ""
+                    if (location.url!.path != "" || location.url!.path == "/") {
+                        adjustedURL = "www." + String.lowercased(location.name!)().replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-.*", with: "") + location.url!.path
+                    }
+                    self.localBars.append(Bar(Id: UUID(), Name: location.name ?? "", BarType: location.pointOfInterestCategory?.rawValue.replacingOccurrences(of: "MKPOICategory", with: "") ?? "", Rating: 0.0, Latitude: location.placemark.coordinate.latitude, Longitude: location.placemark.coordinate.longitude, Address: location.placemark.title ?? "", Phone: location.phoneNumber ?? "", Website: adjustedURL))
                 }
             }
         }
     }
     
-    func shuffleAndDeal() -> Bar{
+    func updateBars() {
+        for i in 0...(localBars.count - 1) {
+            let partcut = detailsHelper.detailsList[i].features
+            if (!partcut.isEmpty) {
+                let fullcut = partcut[0].properties
+                localBars[i].phone = fullcut.contact?.phone ?? ""
+                localBars[i].website = fullcut.website ?? ""
+            }
+        }
+    }
+    
+    func shuffleAndDeal() {
         var bars = localBars
         bars.shuffle()
-        return bars[0]
+        self.index =  localBars.firstIndex(of: bars[0]) ?? Int.random(in: 0...localBars.count)
     }
 
     var body: some View {
@@ -77,10 +96,11 @@ struct MainView : View {
                 VStack {
                     if (!localBars.isEmpty) {
                         if(showBar) {
-                            BarView(bar: shuffleAndDeal())
-
+                            BarView(bar: localBars[index],mapItem: mapItemList[index])
+                            Button(action: {shuffleAndDeal()}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
+                            .modifier(RouletteButtonModifier())
                         } else {
-                            Button(action: {showBar = true}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
+                            Button(action: {showBar = true; shuffleAndDeal()}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
                             .modifier(RouletteButtonModifier())
                         }
                     }
@@ -93,6 +113,10 @@ struct MainView : View {
             }
         }.onAppear(perform: {
             getNearbyLocations()
+        }).onChange(of: detailsHelper.detailsList.count, perform: {_ in
+            if (detailsHelper.detailsList.count == localBars.count) {
+                updateBars()
+            }
         })
     }
 }

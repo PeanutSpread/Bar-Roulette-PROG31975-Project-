@@ -18,13 +18,13 @@ struct Details : Codable {
         var type : String
         struct Properties : Codable {
             var feature_type : String
-            var website : String
-            var name : String
+            var website : String?
+            var name : String?
             
             struct Contact : Codable {
                 var phone : String
             }
-            var contact : Contact
+            var contact : Contact?
             
             struct PaymentOptions : Codable {
                 var cash : Bool
@@ -33,9 +33,9 @@ struct Details : Codable {
                 var discover_card : Bool
                 var american_express : Bool
             }
-            var payment_options : PaymentOptions
+            var payment_options : PaymentOptions?
             
-            var categories : [String]
+            var categories : [String]?
             
             struct Datasource : Codable {
                 var sourcename : String
@@ -43,30 +43,27 @@ struct Details : Codable {
                 var license : String
                 var url : String
             }
-            var datasource : Datasource
+            var datasource : Datasource?
             
-            var housenumber : String
-            var street : String
-            var city : String
-            var county : String
-            var state : String
-            var postcode : String
-            var country : String
-            var country_code : String
-            var formatted : String
-            var address_line1 : String
-            var address_line2 : String
+            var housenumber : String?
+            var street : String?
+            var city : String?
+            var county : String?
+            var state : String?
+            var postcode : String?
+            var country : String?
+            var country_code : String?
+            var formatted : String?
+            var address_line1 : String?
+            var address_line2 : String?
+            var range : Int?
             var lat : Double
             var lon : Double
-            var place_id : String
+            var area : Int?
+            var place_id : String?
         }
         var properties : Properties
         
-        struct Geometry : Codable {
-            var type : String
-            var coordinates : [Double]
-        }
-        var geometry : Geometry
     }
     var features: [feature]
 }
