@@ -4,6 +4,10 @@
 //
 //  Created by Luke Van Rooyen on 2021-11-08.
 //
+// Akshay Kochhar
+// ID: 991414503
+// Luke Van Rooyen
+// ID: 991583099
 import SwiftUI
 import MapKit
 
@@ -16,10 +20,12 @@ struct BarView: View {
     
     func addToFavourites() {
         coreDBH.insertBar(newBar: bar)
+        coreDBH.getAllBars()
     }
 
     func removeFromFavourites() {
         coreDBH.deleteBar(barID: bar.id)
+        coreDBH.getAllBars()
     }
 
     func openMap() {

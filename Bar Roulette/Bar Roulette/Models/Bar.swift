@@ -4,7 +4,10 @@
 //
 //  Created by Luke Van Rooyen on 2021-11-08.
 //
-
+// Akshay Kochhar
+// ID: 991414503
+// Luke Van Rooyen
+// ID: 991583099
 import Foundation
 
 struct Bar : Hashable{
