@@ -36,6 +36,7 @@ class CoreDBHelper : ObservableObject{
             
             let barTobeInserted = NSEntityDescription.insertNewObject(forEntityName: self.ENTITY_NAME, into: self.MOC) as! BarMO
             
+            barTobeInserted.id = newBar.id
             barTobeInserted.name = newBar.name
             barTobeInserted.barType = newBar.barType
             barTobeInserted.rating = newBar.rating

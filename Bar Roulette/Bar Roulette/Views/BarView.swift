@@ -8,17 +8,18 @@ import SwiftUI
 import MapKit
 
 struct BarView: View {
+    @EnvironmentObject var coreDBH : CoreDBHelper
+    @State var isFavourite = false// TODO: check coredata for favourites
     var bar: Bar
     var mapItem: MKMapItem
-    @State var isFavourite = false // TODO: check coredata for favourites
-    @EnvironmentObject var coreDBH : CoreDBHelper
+
     
     func addToFavourites() {
-        //TODO: add to coredata
+        coreDBH.insertBar(newBar: bar)
     }
 
     func removeFromFavourites() {
-        //TODO: remove from coredata
+        coreDBH.deleteBar(barID: bar.id)
     }
 
     func openMap() {

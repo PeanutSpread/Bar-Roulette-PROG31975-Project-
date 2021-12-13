@@ -21,7 +21,7 @@ struct PersistenceController {
     let container : NSPersistentContainer
     
     init(inMemory: Bool = false){
-        container = NSPersistentContainer(name: "BarMO")
+        container = NSPersistentContainer(name: "BarRoulette")
         
         if inMemory{
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")

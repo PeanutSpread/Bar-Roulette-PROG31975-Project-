@@ -10,19 +10,23 @@ import SwiftUI
 struct FavouritesView: View {
     @EnvironmentObject var coreDBH : CoreDBHelper
     
+    init () {
+        UITableViewCell.appearance().backgroundColor = .eerie_black
+        UITableView.appearance().backgroundColor = .eerie_black
+    }
+    
     var body: some View {
         ZStack {
             Color.eerie_black.edgesIgnoringSafeArea(.all)
-            
             VStack {
                 Text("Favourite Bars").modifier(FavouritesTitleModifier())
                 List {
                     ForEach (coreDBH.barList.enumerated().map({$0}), id: \.element.self){ indx, currentBar in
-                        BarRow(favouriteBar: currentBar)
+                        BarRow(favouriteBar: currentBar).environmentObject(coreDBH).listRowBackground(Color.eerie_black)
                     }
                 }
             }
-        }
+        }.onAppear(perform: {coreDBH.getAllBars()})
     }
 }
 
@@ -33,52 +37,45 @@ struct BarRow: View {
     @State var isFavourite = true // TODO: check coredata for favourites
     
     func addToFavourites() {
-        //TODO: add to coredata
+        coreDBH.insertBar(newBar: bar)
     }
 
     func removeFromFavourites() {
-        //TODO: remove from coredata
+        coreDBH.deleteBar(barID: bar.id)
     }
     
     init(favouriteBar favBarMO: BarMO) { bar = favBarMO.convertToBar() }
     init(favouriteBar favBar: Bar) { bar = favBar }
     
     var body: some View {
-        HStack {
-            
-            Button(action: {}){
-                VStack {
-                    Text(bar.getName())
-                    HStack {
-                        Text(bar.getBarType())
+        ZStack {
+            Color.eerie_black.edgesIgnoringSafeArea(.all)
+            HStack {
+                Button(action: {}){
+                    VStack {
+                        Text(bar.getName())
                         HStack {
-                            Image(systemName: "star").padding(.trailing,-5)
-                            Text(String(bar.getRating()) + " / 5.0")
-                        }.padding(.leading, 10)
-                    }.padding(.top, 5)
-                }
-            }.padding(.leading).padding(.vertical)
+                            Text(bar.getBarType())
+                            /*HStack {
+                                Image(systemName: "star").padding(.trailing,-5)
+                                Text(String(bar.getRating()) + " / 5.0")
+                            }.padding(.leading, 10)*/
+                        }.padding(.top, 5)
+                    }
+                }.padding(.leading).padding(.vertical)
 
-            VStack{
-                if(!isFavourite) {
-                    Button(action: {self.isFavourite = true;addToFavourites()})
-                    {Image(systemName: "star.fill").modifier(FavouritesStarModifier()).modifier(FavouritesUncheckedStarModifier())}
+                VStack{
+                    if(!isFavourite) {
+                        Button(action: {self.isFavourite = true;addToFavourites()})
+                        {Image(systemName: "star.fill").modifier(FavouritesStarModifier()).modifier(FavouritesUncheckedStarModifier())}
+                    
+                    } else {
+                        Button(action: {self.isFavourite = false;removeFromFavourites()})
+                        {Image(systemName: "star.fill").modifier(FavouritesStarModifier()).modifier(FavouritesCheckedStarModifier())}
+                    }
+                }.padding(.trailing)
                 
-                } else {
-                    Button(action: {self.isFavourite = false;removeFromFavourites()})
-                    {Image(systemName: "star.fill").modifier(FavouritesStarModifier()).modifier(FavouritesCheckedStarModifier())}
-                }
-            }.padding(.trailing)
-            
-        }.modifier(FavouritesRowModifier())
-    }
-}
-
-struct FavouritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        let coreDBH = CoreDBHelper(context: PersistenceController.shared.container.viewContext)
-        let example = Bar(Id: UUID(), Name: "Monaghan's Sports Pub & Grill", BarType: "Sports Bar", Rating: 3.0, Latitude: 43.470734, Longitude: -79.694534, Address: "1289 Marlborough Court \nOakville ON L6H 2R9 \nCanada", Phone: "+1 (905) 842-4435", Website: "monaghans.ca")
-        FavouritesView().environmentObject(coreDBH)
-        //BarRow(favouriteBar: example)
+            }.modifier(FavouritesRowModifier()).listRowBackground(Color.eerie_black)
+        }
     }
 }

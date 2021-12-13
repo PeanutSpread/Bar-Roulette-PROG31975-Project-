@@ -89,13 +89,13 @@ struct MainView : View {
     var body: some View {
         NavigationView {
             ZStack {
-                NavigationLink(destination: FavouritesView(), tag: 1, selection: self.$selection){}.hidden()
+                NavigationLink(destination: FavouritesView().environmentObject(coreDBH), tag: 1, selection: self.$selection){}.hidden()
                 // Background
                 Color.eerie_black.edgesIgnoringSafeArea(.all)
                 VStack {
                     if (!localBars.isEmpty) {
                         if(showBar) {
-                            BarView(bar: localBars[index],mapItem: mapItemList[index])
+                            BarView(bar: localBars[index],mapItem: mapItemList[index]).environmentObject(coreDBH)
                             Button(action: {shuffleAndDeal()}){Text("Bar Me").modifier(RouletteButtonTextModifier())}
                             .modifier(RouletteButtonModifier())
                         } else {
@@ -115,7 +115,7 @@ struct MainView : View {
         })/*.onChange(of: detailsHelper.detailsList.count, perform: {_ in
             if (!detailsHelper.detailsList.isEmpty) {
                 updateBars()
-            }*/
-        })
+            }
+        })*/
     }
 }
