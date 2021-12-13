@@ -25,11 +25,11 @@ struct Provider: IntentTimelineProvider {
             //stall
         }
         self.getNearbyLocations()
-        while(detailsHelper.detailsList.isEmpty){
+        while(localBars.isEmpty){
             //stall
         }
-        let details = detailsHelper.detailsList
-        return BarEntry(date: Date(), configuration: ConfigurationIntent(), details: details)
+        let bars = localBars
+        return BarEntry(date: Date(), configuration: ConfigurationIntent(), bar: bars[0])
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (BarEntry) -> ()) {
@@ -37,11 +37,11 @@ struct Provider: IntentTimelineProvider {
             //stall
         }
         self.getNearbyLocations()
-        while(detailsHelper.detailsList.isEmpty){
+        while(localBars.isEmpty){
             //stall
         }
-        let details = detailsHelper.detailsList
-        let entry = BarEntry(date: Date(), configuration: ConfigurationIntent(), details: details)
+        let bars = localBars
+        let entry = BarEntry(date: Date(), configuration: ConfigurationIntent(), bar: bars[0])
         completion(entry)
     }
 
@@ -51,16 +51,17 @@ struct Provider: IntentTimelineProvider {
             //stall
         }
         self.getNearbyLocations()
-        while(detailsHelper.detailsList.isEmpty){
+        
+        while(localBars.isEmpty){
             //stall
         }
-        let details = detailsHelper.detailsList
+        let bars = localBars
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for secOffset in 0 ..< 3600 {
             let entryDate = Calendar.current.date(byAdding: .second, value:(secOffset * 30), to: currentDate)!
-            let entry = BarEntry(date: entryDate, configuration: ConfigurationIntent(), details: details)
+            let entry = BarEntry(date: entryDate, configuration: ConfigurationIntent(), bar: bars[0])
             entries.append(entry)
         }
 
@@ -87,4 +88,11 @@ struct Provider: IntentTimelineProvider {
             }
         }
     }
+    
+    func shuffleAndDeal() -> Bar{
+        var bars = localBars
+        bars.shuffle()
+        return bars[0]
+    }
+    
 }

@@ -17,16 +17,9 @@ struct WidgetView : View {
     var entry: Provider.Entry
     
     var body: some View {
-        HStack {
-            // Details
             VStack {
-                Text(String(entry.report.location.name)).bold()
-                Text(entry.report.current.condition.text)
-                Text(String(entry.report.current.temp_c) + "°C")
+                Text(entry.bar.getName())              
             }
-            
-            // img
-           
         }
-    }
 }
+
