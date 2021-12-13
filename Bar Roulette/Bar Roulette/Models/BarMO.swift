@@ -4,7 +4,10 @@
 //
 //  Created by Akshay Kochhar on 2021-11-10.
 //
-
+// Akshay Kochhar
+// ID: 991414503
+// Luke Van Rooyen
+// ID: 991583099
 import Foundation
 import CoreData
 
