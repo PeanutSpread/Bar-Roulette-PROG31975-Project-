@@ -32,7 +32,7 @@ struct BarView: View {
                 /*HStack {
                     Image(systemName: "star").padding(.leading,5).padding(.vertical,5)
                     Text(String(bar.getRating()) + " / 5.0").padding(.trailing,5)
-               */}.modifier(BarTextModifier())
+               }.modifier(BarTextModifier())*/
                 Text(bar.getBarType()).modifier(BarTextModifier())
             }.padding(.top, -10)
             
