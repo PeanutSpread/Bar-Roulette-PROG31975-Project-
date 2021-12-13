@@ -25,10 +25,12 @@ struct Provider: IntentTimelineProvider {
             //stall
         }
         self.getNearbyLocations()
+        let bars = localBars
+        print(bars[0].getName())
         while(localBars.isEmpty){
             //stall
         }
-        let bars = localBars
+        
         return BarEntry(date: Date(), configuration: ConfigurationIntent(), bar: bars[0])
     }
 
@@ -88,11 +90,4 @@ struct Provider: IntentTimelineProvider {
             }
         }
     }
-    
-    func shuffleAndDeal() -> Bar{
-        var bars = localBars
-        bars.shuffle()
-        return bars[0]
-    }
-    
 }

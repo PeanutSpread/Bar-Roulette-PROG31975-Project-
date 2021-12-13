@@ -530,6 +530,7 @@
 				INFOPLIST_FILE = BarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BarWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Bar Widget would like to use your location";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -557,6 +558,7 @@
 				INFOPLIST_FILE = BarWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BarWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Bar Widget would like to use your location";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
