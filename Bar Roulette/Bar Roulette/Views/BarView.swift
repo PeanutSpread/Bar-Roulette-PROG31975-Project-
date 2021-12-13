@@ -16,10 +16,12 @@ struct BarView: View {
     
     func addToFavourites() {
         coreDBH.insertBar(newBar: bar)
+        coreDBH.getAllBars()
     }
 
     func removeFromFavourites() {
         coreDBH.deleteBar(barID: bar.id)
+        coreDBH.getAllBars()
     }
 
     func openMap() {
