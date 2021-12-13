@@ -15,6 +15,21 @@
 		41A9D939273C687100BEB394 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D938273C687100BEB394 /* Persistence.swift */; };
 		41A9D93B273C6A0E00BEB394 /* CoreDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D93A273C6A0E00BEB394 /* CoreDBHelper.swift */; };
 		41B0065027665A04009FC06E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0064F27665A04009FC06E /* LocationManager.swift */; };
+		41C7BF5027669CBB00F8ECA4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C7BF4F27669CBB00F8ECA4 /* WidgetKit.framework */; };
+		41C7BF5227669CBB00F8ECA4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C7BF5127669CBB00F8ECA4 /* SwiftUI.framework */; };
+		41C7BF5527669CBB00F8ECA4 /* BarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF5427669CBB00F8ECA4 /* BarWidget.swift */; };
+		41C7BF5827669CBD00F8ECA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41C7BF5727669CBD00F8ECA4 /* Assets.xcassets */; };
+		41C7BF5A27669CBD00F8ECA4 /* BarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF5627669CBB00F8ECA4 /* BarWidget.intentdefinition */; };
+		41C7BF5B27669CBD00F8ECA4 /* BarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF5627669CBB00F8ECA4 /* BarWidget.intentdefinition */; };
+		41C7BF5E27669CBD00F8ECA4 /* BarWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 41C7BF4D27669CBB00F8ECA4 /* BarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		41C7BF6A2766E62200F8ECA4 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF692766E62200F8ECA4 /* Provider.swift */; };
+		41C7BF6C2766E6B800F8ECA4 /* BarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF6B2766E6B800F8ECA4 /* BarEntry.swift */; };
+		41C7BF6E2766E6CD00F8ECA4 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7BF6D2766E6CD00F8ECA4 /* WidgetView.swift */; };
+		41C7BF6F2766E73700F8ECA4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B0064F27665A04009FC06E /* LocationManager.swift */; };
+		41C7BF702766E73B00F8ECA4 /* DetailsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF28F82765723100076FE5 /* DetailsHelper.swift */; };
+		41C7BF712766E73E00F8ECA4 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4137C4AD27518F620053A1C7 /* LocationHelper.swift */; };
+		41C7BF722766E7A900F8ECA4 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF28FA276587D800076FE5 /* Details.swift */; };
+		41C7BF732766E7AC00F8ECA4 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96927399C0900EFD6A4 /* Bar.swift */; };
 		8254C96A27399C0900EFD6A4 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96927399C0900EFD6A4 /* Bar.swift */; };
 		8254C96C2739A2AC00EFD6A4 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */; };
 		8254C9702739AC1600EFD6A4 /* UIModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8254C96F2739AC1600EFD6A4 /* UIModifiers.swift */; };
@@ -31,6 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		41C7BF5C27669CBD00F8ECA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8296BD80270AA2F8005A88F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41C7BF4C27669CBB00F8ECA4;
+			remoteInfo = BarWidgetExtension;
+		};
 		8296BD99270AA2FA005A88F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8296BD80270AA2F8005A88F3 /* Project object */;
@@ -47,6 +69,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		41C7BF5F27669CBD00F8ECA4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				41C7BF5E27669CBD00F8ECA4 /* BarWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4137C4AD27518F620053A1C7 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		4137C4AF275191000053A1C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -56,6 +92,16 @@
 		41A9D938273C687100BEB394 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		41A9D93A273C6A0E00BEB394 /* CoreDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDBHelper.swift; sourceTree = "<group>"; };
 		41B0064F27665A04009FC06E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		41C7BF4D27669CBB00F8ECA4 /* BarWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BarWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		41C7BF4F27669CBB00F8ECA4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		41C7BF5127669CBB00F8ECA4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		41C7BF5427669CBB00F8ECA4 /* BarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarWidget.swift; sourceTree = "<group>"; };
+		41C7BF5627669CBB00F8ECA4 /* BarWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = BarWidget.intentdefinition; sourceTree = "<group>"; };
+		41C7BF5727669CBD00F8ECA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41C7BF5927669CBD00F8ECA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41C7BF692766E62200F8ECA4 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		41C7BF6B2766E6B800F8ECA4 /* BarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarEntry.swift; sourceTree = "<group>"; };
+		41C7BF6D2766E6CD00F8ECA4 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		8254C96927399C0900EFD6A4 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		8254C96B2739A2AC00EFD6A4 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		8254C96F2739AC1600EFD6A4 /* UIModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIModifiers.swift; sourceTree = "<group>"; };
@@ -75,6 +121,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		41C7BF4A27669CBB00F8ECA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C7BF5227669CBB00F8ECA4 /* SwiftUI.framework in Frameworks */,
+				41C7BF5027669CBB00F8ECA4 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8296BD85270AA2F8005A88F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +173,29 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		41C7BF4E27669CBB00F8ECA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41C7BF4F27669CBB00F8ECA4 /* WidgetKit.framework */,
+				41C7BF5127669CBB00F8ECA4 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41C7BF5327669CBB00F8ECA4 /* BarWidget */ = {
+			isa = PBXGroup;
+			children = (
+				41C7BF5427669CBB00F8ECA4 /* BarWidget.swift */,
+				41C7BF5627669CBB00F8ECA4 /* BarWidget.intentdefinition */,
+				41C7BF5727669CBD00F8ECA4 /* Assets.xcassets */,
+				41C7BF5927669CBD00F8ECA4 /* Info.plist */,
+				41C7BF692766E62200F8ECA4 /* Provider.swift */,
+				41C7BF6B2766E6B800F8ECA4 /* BarEntry.swift */,
+				41C7BF6D2766E6CD00F8ECA4 /* WidgetView.swift */,
+			);
+			path = BarWidget;
+			sourceTree = "<group>";
+		};
 		8254C96727399B1C00EFD6A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +224,8 @@
 				8296BD8A270AA2F8005A88F3 /* Bar Roulette */,
 				8296BD9B270AA2FA005A88F3 /* Bar RouletteTests */,
 				8296BDA5270AA2FA005A88F3 /* Bar RouletteUITests */,
+				41C7BF5327669CBB00F8ECA4 /* BarWidget */,
+				41C7BF4E27669CBB00F8ECA4 /* Frameworks */,
 				8296BD89270AA2F8005A88F3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -156,6 +236,7 @@
 				8296BD88270AA2F8005A88F3 /* Bar Roulette.app */,
 				8296BD98270AA2FA005A88F3 /* Bar RouletteTests.xctest */,
 				8296BDA2270AA2FA005A88F3 /* Bar RouletteUITests.xctest */,
+				41C7BF4D27669CBB00F8ECA4 /* BarWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +285,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		41C7BF4C27669CBB00F8ECA4 /* BarWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41C7BF6227669CBD00F8ECA4 /* Build configuration list for PBXNativeTarget "BarWidgetExtension" */;
+			buildPhases = (
+				41C7BF4927669CBB00F8ECA4 /* Sources */,
+				41C7BF4A27669CBB00F8ECA4 /* Frameworks */,
+				41C7BF4B27669CBB00F8ECA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BarWidgetExtension;
+			productName = BarWidgetExtension;
+			productReference = 41C7BF4D27669CBB00F8ECA4 /* BarWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8296BD87270AA2F8005A88F3 /* Bar Roulette */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8296BDAC270AA2FA005A88F3 /* Build configuration list for PBXNativeTarget "Bar Roulette" */;
@@ -211,10 +309,12 @@
 				8296BD84270AA2F8005A88F3 /* Sources */,
 				8296BD85270AA2F8005A88F3 /* Frameworks */,
 				8296BD86270AA2F8005A88F3 /* Resources */,
+				41C7BF5F27669CBD00F8ECA4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				41C7BF5D27669CBD00F8ECA4 /* PBXTargetDependency */,
 			);
 			name = "Bar Roulette";
 			productName = "Bar Roulette";
@@ -264,9 +364,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					41C7BF4C27669CBB00F8ECA4 = {
+						CreatedOnToolsVersion = 13.1;
+					};
 					8296BD87270AA2F8005A88F3 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -296,11 +399,20 @@
 				8296BD87270AA2F8005A88F3 /* Bar Roulette */,
 				8296BD97270AA2FA005A88F3 /* Bar RouletteTests */,
 				8296BDA1270AA2FA005A88F3 /* Bar RouletteUITests */,
+				41C7BF4C27669CBB00F8ECA4 /* BarWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		41C7BF4B27669CBB00F8ECA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C7BF5827669CBD00F8ECA4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8296BD86270AA2F8005A88F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,10 +439,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		41C7BF4927669CBB00F8ECA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C7BF712766E73E00F8ECA4 /* LocationHelper.swift in Sources */,
+				41C7BF6C2766E6B800F8ECA4 /* BarEntry.swift in Sources */,
+				41C7BF6A2766E62200F8ECA4 /* Provider.swift in Sources */,
+				41C7BF6F2766E73700F8ECA4 /* LocationManager.swift in Sources */,
+				41C7BF5A27669CBD00F8ECA4 /* BarWidget.intentdefinition in Sources */,
+				41C7BF732766E7AC00F8ECA4 /* Bar.swift in Sources */,
+				41C7BF722766E7A900F8ECA4 /* Details.swift in Sources */,
+				41C7BF5527669CBB00F8ECA4 /* BarWidget.swift in Sources */,
+				41C7BF702766E73B00F8ECA4 /* DetailsHelper.swift in Sources */,
+				41C7BF6E2766E6CD00F8ECA4 /* WidgetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8296BD84270AA2F8005A88F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C7BF5B27669CBD00F8ECA4 /* BarWidget.intentdefinition in Sources */,
 				4137C4B2275193D50053A1C7 /* Landmark.swift in Sources */,
 				41A9D939273C687100BEB394 /* Persistence.swift in Sources */,
 				4137C4B0275191000053A1C7 /* MapView.swift in Sources */,
@@ -370,6 +500,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		41C7BF5D27669CBD00F8ECA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41C7BF4C27669CBB00F8ECA4 /* BarWidgetExtension */;
+			targetProxy = 41C7BF5C27669CBD00F8ECA4 /* PBXContainerItemProxy */;
+		};
 		8296BD9A270AA2FA005A88F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8296BD87270AA2F8005A88F3 /* Bar Roulette */;
@@ -383,6 +518,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		41C7BF6027669CBD00F8ECA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9S746CAN84;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BarWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BarWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PeanutSpread.Bar-Roulette.BarWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41C7BF6127669CBD00F8ECA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9S746CAN84;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BarWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BarWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "PeanutSpread.Bar-Roulette.BarWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8296BDAA270AA2FA005A88F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -502,6 +691,7 @@
 		8296BDAD270AA2FA005A88F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +724,7 @@
 		8296BDAE270AA2FA005A88F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -662,6 +853,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		41C7BF6227669CBD00F8ECA4 /* Build configuration list for PBXNativeTarget "BarWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41C7BF6027669CBD00F8ECA4 /* Debug */,
+				41C7BF6127669CBD00F8ECA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8296BD83270AA2F8005A88F3 /* Build configuration list for PBXProject "Bar Roulette" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
