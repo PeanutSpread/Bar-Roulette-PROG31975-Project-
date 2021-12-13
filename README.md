@@ -29,13 +29,15 @@ NOTE: Ammar has dropped the course. Luke and Akshay will be responsible for impl
 <p> •	Fetching the list of bars. It will use location services to find nearby bars in the user’s location radius. </p>
 <p> •	the interaction of views, which will be made sure to be user-friendly e.g., ease and speed of navigation through the app. </p>
 
-<h1> PROGRESS MADE: </h1>
+<h1> WHAT WE ACCOMPLISHED: </h1>
 <h2> Akshay: </h2>
 <p> -Implemented CoreData functionality (create, retrieve, delete. Update is not necessary in this app. </p>
 <p> -Implemented Persistence and CoreDBHelper to help with CoreData functionality </p>
 <p> -Implemented bar class, needs more work based on landmark information </p>
 <p> -Implemented LocationManager </p>
 <p> -Implemented MapView functionality. We probably will not use the map but will definitely use LandMark retrieval functionality. Created LandMark Model. </p>
+<p> -Implemented a widget that shows the closest bar to you. At this moment it does not seem to be functional. localBars in BarHelper seems to be empty everytime the app is run </p>
+<p> -Helped with the debugging of obtaining bars in the main app</p>
 
 <h2> Luke: </h2>
 <p> -Implemented BarView, ContentView and Favourites View, Most likely not finished and will see constant tweaks and changes. </p>
