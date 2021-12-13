@@ -38,10 +38,12 @@ struct BarRow: View {
     
     func addToFavourites() {
         coreDBH.insertBar(newBar: bar)
+        coreDBH.getAllBars()
     }
 
     func removeFromFavourites() {
         coreDBH.deleteBar(barID: bar.id)
+        coreDBH.getAllBars()
     }
     
     init(favouriteBar favBarMO: BarMO) { bar = favBarMO.convertToBar() }
